@@ -1,21 +1,21 @@
-empty_list = []
+num_list = []
+max_elements = None
 
-user_choice = None
-counter = 0
-
-# Allow user to input numbers to the list
-while True:
+while not max_elements:
     try:
-        number = int(input(f"\nEnter a number {counter + 1}: "))
-        empty_list.append(number)
-        counter += 1
+        max_elements = int(input("Enter the maximum number of elements to add to the list: "))
     except ValueError:
-        print("\nSorry, you have to input an interger.")
+        print("Please enter a valid integer.")
 
-    user_choice = input("Do you wish to continue(Type 'Y' for yes. Any other input means no.)? ")
-    if user_choice.lower() != "y":
-        break
+for i in range(max_elements):
+    while True:
+        try:
+            number = int(input(f"\nEnter a number {i + 1}: "))
+            num_list.append(number)
+            break
+        except ValueError:
+            print("\nSorry, you have to input an integer.")
 
-element_sum = sum(empty_list)
+element_sum = sum(num_list)
 
 print(f"\nThe sum of the entered numbers is {element_sum}.")
